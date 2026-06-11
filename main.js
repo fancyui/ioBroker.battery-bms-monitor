@@ -465,7 +465,7 @@ class GobelBattery extends utils.Adapter {
                     await this.setStateAsync(stateId, subVal, true);
                 }
             } else if (key !== 'cell_number' && key !== 'temp_sensor_number') {
-                // Flat warning strings (e.g., warn_charge_current, warn_total_voltage)
+                // Flat warning values (could be string like 'normal', or number like balance_state_1)
                 const folderId = `${packId}.warnings`;
                 await this.setObjectNotExistsAsync(folderId, {
                     type: 'folder',
@@ -473,13 +473,24 @@ class GobelBattery extends utils.Adapter {
                     native: {}
                 });
 
+                const valType = typeof val;
+                let ioBrokerType = 'string';
+                let ioBrokerRole = 'info.status';
+                if (valType === 'number') {
+                    ioBrokerType = 'number';
+                    ioBrokerRole = 'value';
+                } else if (valType === 'boolean') {
+                    ioBrokerType = 'boolean';
+                    ioBrokerRole = 'indicator';
+                }
+
                 const stateId = `${folderId}.${key}`;
                 await this.setObjectNotExistsAsync(stateId, {
                     type: 'state',
                     common: {
                         name: key.replace(/_/g, ' '),
-                        type: 'string',
-                        role: 'info.status',
+                        type: ioBrokerType,
+                        role: ioBrokerRole,
                         read: true,
                         write: false
                     },
