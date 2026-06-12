@@ -98,6 +98,11 @@ def main():
             logger.error(f"Failed to initialize BMS type '{args.bms_type}' on port '{args.port}'")
             sys.exit(1)
 
+        consecutive_analog_failures = 0
+        consecutive_warning_failures = 0
+        first_analog_success = True
+        first_warning_success = True
+
         logger.info("BMS Monitor loop started...")
         while True:
             # Query analog data
@@ -136,10 +141,16 @@ def main():
                         analog_data = [res]
             
             if analog_data:
+                consecutive_analog_failures = 0
+                if first_analog_success:
+                    logger.info("Successfully received first analog data from BMS.")
+                    first_analog_success = False
                 print(json.dumps({"type": "analog", "data": analog_data}))
                 sys.stdout.flush()
             else:
-                logger.warning("No analog data received from BMS.")
+                consecutive_analog_failures += 1
+                if consecutive_analog_failures >= 3:
+                    logger.warning(f"No analog data received from BMS for {consecutive_analog_failures} consecutive checks.")
 
             time.sleep(1.0) # Small delay to avoid collision between reading warnings
 
@@ -178,10 +189,16 @@ def main():
                         warning_data = [res]
 
             if warning_data:
+                consecutive_warning_failures = 0
+                if first_warning_success:
+                    logger.info("Successfully received first warning data from BMS.")
+                    first_warning_success = False
                 print(json.dumps({"type": "warning", "data": warning_data}))
                 sys.stdout.flush()
             else:
-                logger.warning("No warning data received from BMS.")
+                consecutive_warning_failures += 1
+                if consecutive_warning_failures >= 3:
+                    logger.warning(f"No warning data received from BMS for {consecutive_warning_failures} consecutive checks.")
 
             time.sleep(max(1.0, args.refresh - 1.0))
 
