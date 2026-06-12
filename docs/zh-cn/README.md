@@ -51,7 +51,30 @@
 7. **数据刷新间隔 (Refresh Interval)**：查询 BMS 的频率（默认 `5` 秒）。
 8. **最大并联数 (Max Parallel Packs)**：扫描并联电池的最大限制（最大支持 `63` 个）。
 
-## 接线指南
+## 接线与硬件指南
+
+### 连接方式与模块说明
+* **串口连接 (Serial)**：如果选择 `Serial`，需要使用 **USB-RS232** 或 **USB-RS485** 转接线将 BMS 连接到运行 ioBroker 的主机。
+* **WiFi / 以太网连接**：如果选择 `WiFi` 或 `Ethernet`，需要使用 **RS232-WIFI/Ethernet** 或 **RS485-WIFI/Ethernet** 模块（例如**微雪 Waveshare**模块）。
+  * *重要配置*：请在网络模块的管理界面中，将模块的工作模式设置为 **TCP Server**，且适配器会作为 TCP Client 去连接它。
+
+### RS485 接口针脚定义
+进行 RS485 通信时，请参考以下针脚定义：
+
+![RS485 针脚定义](../../images/rs485a-can-pin.jpg)
+
+| 针脚 (Pin) | 信号 (Signal) |
+| :---: | :---: |
+| 1 | B |
+| 2 | A |
+| 3 | GND |
+| 4 | NC (空脚) |
+| 5 | NC (空脚) |
+| 6 | GND |
+| 7 | A |
+| 8 | B |
+
+### BMS 拨码开关设置
 * **Pace BMS**：连接到 **RS232** 接口或通过 WiFi 转换器连接。将主机 BMS 的拨码开关（DIP switches）设置为 `1000`。
 * **JK BMS**：连接到 **RS485B** 或 **RS485C** 接口。将主机 BMS 的拨码开关设置为 `0000`。
 * **TDT BMS**：连接到 **RS232** 接口。

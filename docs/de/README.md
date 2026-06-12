@@ -51,7 +51,30 @@ Konfigurieren Sie die folgenden Optionen im Admin-Panel des Adapters:
 7. **Aktualisierungsintervall**: Häufigkeit der BMS-Abfragen (Standard `5` Sekunden).
 8. **Max. parallele Packs**: Scan-Limit für parallele Batterien (bis zu `63`).
 
-## Verkabelungsanleitung
+## Verkabelungs- und Hardware-Handbuch
+
+### Verbindungstypen & Module
+* **Serielle Verbindung**: Wenn Sie in der Konfiguration `Serial` auswählen, ist ein **USB-RS232**- oder **USB-RS485**-Kabel/Adapter erforderlich, um das BMS mit Ihrem Host-Computer zu verbinden.
+* **WLAN / Ethernet-Verbindung**: Wenn Sie in der Konfiguration `WiFi` oder `Ethernet` auswählen, benötigen Sie ein Seriell-zu-Netzwerk-Modul wie z. B. **RS232-zu-WIFI/Ethernet** oder **RS485-zu-WIFI/Ethernet** (z. B. Module von **Waveshare**).
+  * *Wichtig*: Konfigurieren Sie das Netzwerkmodul so, dass es als **TCP-Server** arbeitet. Der Adapter verbindet sich dann als TCP-Client mit dem Modul.
+
+### RS485 Pinbelegungsdiagramm
+Für die RS485-Kommunikation beziehen Sie sich bitte auf die folgende Pinbelegung:
+
+![RS485 Pinbelegung](../../images/rs485a-can-pin.jpg)
+
+| Pin | Signal |
+| :---: | :---: |
+| 1 | B |
+| 2 | A |
+| 3 | GND |
+| 4 | NC (Nicht verbunden) |
+| 5 | NC (Nicht verbunden) |
+| 6 | GND |
+| 7 | A |
+| 8 | B |
+
+### BMS DIP-Einstellungen
 * **Pace BMS**: Verbinden Sie sich mit dem **RS232**-Anschluss oder über einen WLAN-Konverter. Stellen Sie die DIP-Schalter des Master-BMS auf `1000`.
 * **JK BMS**: Verbinden Sie sich mit der **RS485B**- oder **RS485C**-Schnittstelle. Stellen Sie die DIP-Schalter des Master-BMS auf `0000`.
 * **TDT BMS**: Verbinden Sie sich mit der **RS232**-Schnittstelle.

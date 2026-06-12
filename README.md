@@ -65,7 +65,30 @@ Configure the following options in the adapter admin panel:
 7. **Refresh Interval**: Frequency of BMS queries (default `5` seconds).
 8. **Max Parallel Packs**: Scanning limit for parallel batteries (up to `63`).
 
-## Wiring Guide
+## Wiring and Hardware Guide
+
+### Connection Types & Modules
+* **Serial Connection**: If you select `Serial` in the configuration, a **USB-RS232** or **USB-RS485** cable/adapter is required to connect the BMS to your host computer.
+* **WiFi / Ethernet Connection**: If you select `WiFi` or `Ethernet` in the configuration, you will need a serial-to-network module such as **RS232-to-WIFI/Ethernet** or **RS485-to-WIFI/Ethernet** (for example, **Waveshare** modules).
+  * *Important*: Configure the network module to operate as a **TCP Server**. The adapter will connect to it as a TCP Client.
+
+### RS485 Pinout Diagram
+For RS485 communication, refer to the pinout below:
+
+![RS485 Pinout](images/rs485a-can-pin.jpg)
+
+| Pin | Signal |
+| :---: | :---: |
+| 1 | B |
+| 2 | A |
+| 3 | GND |
+| 4 | NC (Not Connected) |
+| 5 | NC (Not Connected) |
+| 6 | GND |
+| 7 | A |
+| 8 | B |
+
+### BMS DIP Settings
 * **Pace BMS**: Connect to the **RS232** port or via WiFi converter. Set the Master BMS DIP switches to `1000`.
 * **JK BMS**: Connect to the **RS485B** or **RS485C** interface. Set the Master BMS DIP switches to `0000`.
 * **TDT BMS**: Connect to the **RS232** interface.
