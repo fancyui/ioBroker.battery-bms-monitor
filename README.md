@@ -4,6 +4,8 @@ description:
 
 # ioBroker Gobel Battery Monitor Adapter (PACE, JK, TDT BMS)
 
+[Deutsch](docs/de/README.md) | [简体中文](docs/zh-cn/README.md)
+
 <!--
 [![NPM version](http://img.shields.io/npm/v/iobroker.gobel-battery.svg)](https://www.npmjs.com/package/iobroker.gobel-battery)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.gobel-battery.svg)](https://www.npmjs.com/package/iobroker.gobel-battery)
@@ -48,7 +50,7 @@ This adapter runs a lightweight Python 3 daemon in the background to interface w
 During the initial release or development phase, install it directly from GitHub or local directory:
 * Inside your ioBroker root folder (e.g., `/opt/iobroker` on Linux):
   ```bash
-  npm install https://github.com/fancyui/Gobel-Battery-ioBroker-Adapter
+  npm install https://github.com/fancyui/ioBroker.gobel-battery
   ```
 * Or add it via the ioBroker admin panel (GitHub icon/Custom URL).
 

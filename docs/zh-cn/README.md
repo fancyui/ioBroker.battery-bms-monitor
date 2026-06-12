@@ -1,5 +1,7 @@
 # ioBroker Gobel Battery 电池监控适配器 (支持 PACE, JK, TDT BMS)
 
+[English](../../README.md) | [Deutsch](../de/README.md)
+
 此适配器将 Gobel Power 电池 BMS（包括 PACE BMS、JK BMS 和 TDT BMS）集成到 ioBroker 中，允许实时监控电池健康状况、单体电池电压、充电状态 (SoC) 以及警报信息。
 
 ## 功能特点

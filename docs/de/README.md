@@ -1,5 +1,7 @@
 # ioBroker Gobel Battery Monitor Adapter (PACE, JK, TDT BMS)
 
+[English](../../README.md) | [简体中文](../zh-cn/README.md)
+
 Dieser Adapter integriert das Gobel Power Battery BMS (PACE BMS, JK BMS und TDT BMS) in ioBroker und ermöglicht die Echtzeitüberwachung des Batteriezustands, der einzelnen Zellspannungen, des Ladezustands (SoC) und von Warnalarmen.
 
 ## Funktionen
