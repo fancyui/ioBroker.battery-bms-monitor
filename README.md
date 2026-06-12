@@ -1,11 +1,17 @@
+---
+description: 
+---
+
 # ioBroker Gobel Battery Monitor Adapter (PACE, JK, TDT BMS)
 
+<!--
 [![NPM version](http://img.shields.io/npm/v/iobroker.gobel-battery.svg)](https://www.npmjs.com/package/iobroker.gobel-battery)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.gobel-battery.svg)](https://www.npmjs.com/package/iobroker.gobel-battery)
 ![Number of Installations](http://iobroker.live/badges/gobel-battery-stable.svg)
 [![Dependency Status](https://img.shields.io/david/fancyui/Gobel-Battery-ioBroker-Adapter.svg)](https://david-dm.org/fancyui/Gobel-Battery-ioBroker-Adapter)
 
 [![NPM](https://nodei.co/npm/iobroker.gobel-battery.png?downloads=true)](https://nodei.co/npm/iobroker.gobel-battery/)
+-->
 
 This adapter integrates Gobel Power Battery BMS (PACE BMS, JK BMS, and TDT BMS) into ioBroker, allowing real-time monitoring of battery health, individual cell voltages, state of charge (SoC), and warning alarms.
 
@@ -19,22 +25,24 @@ This adapter integrates Gobel Power Battery BMS (PACE BMS, JK BMS, and TDT BMS) 
   * Alarm status: Cell overvoltage, undervoltage, high/low temperature warnings, short circuit, and charge/discharge MOSFET states.
 
 ## Prerequisites
-This adapter runs a lightweight Python 3 daemon in the background to interface with the battery BMS.
-Ensure **Python 3** and **pyserial** are installed on your ioBroker host machine.
+This adapter runs a lightweight Python 3 daemon in the background to interface with the battery BMS. It requires **Python (version 3.8 or higher)**.
 
-### Installation of prerequisites:
-* **Linux (Debian/Ubuntu/Raspbian)**:
+### Automatic Setup (Windows)
+* If your Windows machine is connected to the internet, **the adapter will automatically download and set up a portable Python 3.11 environment with `pyserial` on startup**. You do not need to install anything manually!
+* The downloaded environment is cached persistently under `iobroker-data/gobel-battery-python/` and survives adapter updates.
+
+### Manual Setup (Linux / Docker / Windows Offline)
+* **Linux (Debian/Ubuntu/Raspberry Pi OS)**:
+  Connect via SSH and run:
   ```bash
   sudo apt-get update
-  sudo apt-get install python3 python3-pip
-  pip3 install pyserial
+  sudo apt-get install -y python3 python3-venv
   ```
-* **Windows**:
-  Download and install Python 3 from [python.org](https://www.python.org/). Ensure you check "Add Python to PATH" during installation.
-  Open Command Prompt or PowerShell and install `pyserial`:
-  ```cmd
-  pip install pyserial
-  ```
+* **Docker Container (ioBroker official image)**:
+  Edit the container settings and add `python3` to the `PACKAGES` environment variable. The container will automatically install it on startup.
+* **Windows (Offline/Manual Setup)**:
+  Download and install Python (3.8+) from [python.org](https://www.python.org/). Ensure you check **"Add Python to PATH"** during installation.
+
 
 ## How to Install the Adapter
 During the initial release or development phase, install it directly from GitHub or local directory:
@@ -53,7 +61,7 @@ Configure the following options in the adapter admin panel:
 5. **Baud Rate**: Typically `115200` (Pace/JK) or `9600`.
 6. **IP Address & Port** (WiFi/Ethernet only): Specify the IP and port (default `8899`) of your RS232/RS485-to-WiFi/Ethernet server.
 7. **Refresh Interval**: Frequency of BMS queries (default `5` seconds).
-8. **Max Parallel Packs**: Scanning limit for parallel batteries (up to `16`).
+8. **Max Parallel Packs**: Scanning limit for parallel batteries (up to `63`).
 
 ## Wiring Guide
 * **Pace BMS**: Connect to the **RS232** port or via WiFi converter. Set the Master BMS DIP switches to `1000`.
