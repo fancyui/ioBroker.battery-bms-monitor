@@ -2,6 +2,8 @@
 
 [English](../../README.md) | [Deutsch](../de/README.md)
 
+> **注意**：寻找 Home Assistant Add-on 版本？请访问 [Gobel Power 电池 Home Assistant Add-on](https://github.com/fancyui/Gobel-Battery-HA-Addon)。
+
 此适配器由 Gobel Power 开发。它将兼容的电池 BMS（包括 PACE BMS、JK BMS 和 TDT BMS）集成到 ioBroker 中，允许实时监控电池健康状况、单体电池电压、充电状态 (SoC) 以及警报信息。它既适用于 Gobel Power 电池，也适用于任何其他使用这些 BMS 协议的电池。
 
 ## 功能特点

@@ -2,6 +2,8 @@
 
 [English](../../README.md) | [简体中文](../zh-cn/README.md)
 
+> **Hinweis**: Suchen Sie nach der Home Assistant Add-on-Version? Besuchen Sie das [Gobel Power Battery Home Assistant Add-on](https://github.com/fancyui/Gobel-Battery-HA-Addon).
+
 Dieser Adapter wurde von Gobel Power entwickelt. Er integriert kompatible Batterie-BMS (PACE BMS, JK BMS und TDT BMS) in ioBroker und ermöglicht die Echtzeitüberwachung des Batteriezustands, der einzelnen Zellspannungen, des Ladezustands (SoC) und von Warnalarmen. Er kann sowohl für Gobel Power Batterien als auch für alle anderen Batterien verwendet werden, die diese BMS-Protokolle nutzen.
 
 ## Funktionen

@@ -6,6 +6,8 @@ description:
 
 [Deutsch](docs/de/README.md) | [简体中文](docs/zh-cn/README.md)
 
+> **Note**: Looking for the Home Assistant Add-on version? Check out the [Gobel Power Battery Home Assistant Add-on](https://github.com/fancyui/Gobel-Battery-HA-Addon).
+
 <!--
 [![NPM version](http://img.shields.io/npm/v/iobroker.gobel-bms-monitor.svg)](https://www.npmjs.com/package/iobroker.gobel-bms-monitor)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.gobel-bms-monitor.svg)](https://www.npmjs.com/package/iobroker.gobel-bms-monitor)
